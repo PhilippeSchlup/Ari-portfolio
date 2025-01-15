@@ -9,41 +9,120 @@
     <title>Arianna's Portfolio</title>
 </head>
 <body>
-    <nav class="navbar has-background-warning" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item has-text-light is-size-4" href="">
                 <strong>Arianna</strong>
             </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <a role="button" class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div id="navbarBasicExample" class="navbar-menu has-background-warning">
+        <div id="navbarBasicExample" class="navbar-menu has-background-dark">
             <div class="navbar-start">
-                <a class="navbar-item has-text-white" href="index.html" aria-current="page">Portfolio</a>
-                <a class="navbar-item has-text-white" href="projects.html">Projects</a>
-                <a class="navbar-item has-text-white" href="about_me.html">About me</a>
+                <a class="navbar-item has-text-light" href="index.html" aria-current="page">Portfolio</a>
+                <a class="navbar-item has-text-light" href="projects.html">Projects</a>
+                <a class="navbar-item has-text-light" href="about_me.html">About me</a>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item has-text-white has-background-warning" href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV">
+                <a class="navbar-item has-text-light " href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV" style="border-radius: 5px; padding: 8px 16px;">
                     <strong>Download CV</strong>
                 </a>
             </div>
-            
         </div>
     </nav>
+    
 
     <div class="is-flex is-flex-direction-column is-align-items-center" style="min-height: calc(100vh - 64px);">
         <p class="title" style="margin-top: 24px; margin-bottom: 0;">Showreel</p>
         <p style="margin-bottom: 24px;">last update: 12/2024</p>
-        <video controls src="videos/portfolio/portfolio.mp4" width="70%" style="border-radius: 20px;">
-        </video>
+        <div class="video-container" style="position: relative; width: 70%; border-radius: 20px; overflow: hidden;">
+            <video id="customVideo" src="videos/portfolio/portfolio.mp4" width="100%" style="border-radius: 20px;"></video>
+            <div id="controls" 
+                 style="
+                     position: absolute; 
+                     bottom: 20px; 
+                     left: 50%; 
+                     transform: translateX(-50%); 
+                     display: flex; 
+                     gap: 10px; 
+                     align-items: center; 
+                     background: rgba(0, 0, 0, 0.7); 
+                     padding: 10px 20px; 
+                     border-radius: 10px; 
+                     z-index: 10;
+                 ">
+                <button id="backwardButton" 
+                        style="
+                            background: transparent; 
+                            color: white; 
+                            border: none; 
+                            cursor: pointer; 
+                            font-size: 20px;
+                        ">
+                    -10s
+                </button>
+                <button id="playPauseButton" 
+                        style="
+                            background: transparent; 
+                            color: white; 
+                            border: none; 
+                            cursor: pointer; 
+                            font-size: 24px;
+                        ">
+                    ▶
+                </button>
+                <button id="forwardButton" 
+                        style="
+                            background: transparent; 
+                            color: white; 
+                            border: none; 
+                            cursor: pointer; 
+                            font-size: 20px;
+                        ">
+                    +10s 
+                </button>
+            </div>
+        </div>
     </div>
     
     
     
 
 </body>
+<script>
+    const video = document.getElementById('customVideo');
+    const playPauseButton = document.getElementById('playPauseButton');
+    const backwardButton = document.getElementById('backwardButton');
+    const forwardButton = document.getElementById('forwardButton');
+
+    // Play or pause the video
+    playPauseButton.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playPauseButton.textContent = '⏸'; // Change to pause icon
+        } else {
+            video.pause();
+            playPauseButton.textContent = '▶'; // Change back to play icon
+        }
+    });
+
+    // Skip 10 seconds backward
+    backwardButton.addEventListener('click', () => {
+        video.currentTime = Math.max(0, video.currentTime - 10); // Ensure it doesn't go below 0
+    });
+
+    // Skip 10 seconds forward
+    forwardButton.addEventListener('click', () => {
+        video.currentTime = Math.min(video.duration, video.currentTime + 10); // Ensure it doesn't exceed duration
+    });
+
+    // Update the button to "▶" when the video ends
+    video.addEventListener('ended', () => {
+        playPauseButton.textContent = '▶';
+    });
+</script>
+
 </html>

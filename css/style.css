@@ -1,9 +1,53 @@
 html{
     height: 100vh;
 }
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .navbar a {
+    position: relative; 
+    text-decoration: none; 
+    color: #fff; 
+    transition: color 0.3s ease;
+} */
+.navbar-item:hover {
+    background-color: transparent !important;
+    color: var(--bulma-light, #ffffff) !important;
+    text-decoration: none; 
+}
 
 
-:root {
+.navbar a::after {
+    content: ''; 
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    width: 0;
+    height: 2px; 
+    background-color: red; 
+    transition: width 0.3s ease; 
+}
+
+.navbar a:hover::after {
+    width: 100%; 
+}
+
+
+.navbar .navbar-item strong {
+    font-family: 'Times New Roman', serif; 
+}
+
+/* .navbar-end .has-background-primary {
+    transition: background-color 0.3s ease;
+}
+
+.navbar-end .has-background-primary:hover {
+    background-color: #0056b3; 
+} */
+
+
+/* :root {
     --bulma-danger-h: 7deg;
     --bulma-danger-s: 82%;
     --bulma-danger-l: 51%;
@@ -50,11 +94,23 @@ html{
 .navbar-item.has-text-white:hover {
     background-color: var(--bulma-primary, #e9311a); 
     color: white; 
-}
+} */
 .navbar-item[aria-current="page"] {
-    background-color: var(--bulma-primary, #e9311a); 
-    color: white; 
-    font-weight: bold; 
+    color: white;
+    font-weight: bold;
+    position: relative; /* Enables pseudo-element positioning */
+    text-decoration: none; /* Removes default underline */
 }
+
+.navbar-item[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Places the line at the bottom of the link */
+    width: 100%; /* Line spans the full width */
+    height: 2px; /* Thickness of the line */
+    background-color: red; /* Line color */
+}
+
 
 
