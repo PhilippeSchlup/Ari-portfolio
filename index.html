@@ -9,10 +9,10 @@
     <title>Arianna's Portfolio</title>
 </head>
 <body>
-    <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item has-text-light is-size-4" href="">
-                <strong>Arrianna</strong>
+                <strong>Arianna</strong>
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -20,16 +20,16 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div id="navbarBasicExample" class="navbar-menu has-background-primary">
+        <div id="navbarBasicExample" class="navbar-menu has-background-warning">
             <div class="navbar-start">
-                <a class="navbar-item has-text-white" href="index.html">Portfolio</a>
+                <a class="navbar-item has-text-white" href="index.html" aria-current="page">Portfolio</a>
                 <a class="navbar-item has-text-white" href="projects.html">Projects</a>
                 <a class="navbar-item has-text-white" href="about_me.html">About me</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-link" href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV">
+                        <a class="button is-link is-custom-danger" href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV">
                             <strong>Download CV</strong>
                         </a>
                     </div>
@@ -39,10 +39,13 @@
         </div>
     </nav>
 
-    <div class="is-flex is-justify-content-center is-align-items-center" style="min-height: calc(100vh - 64px); border-radius: 20px; overflow: hidden;">
+    <div class="is-flex is-flex-direction-column is-align-items-center" style="min-height: calc(100vh - 64px);">
+        <p class="title" style="margin-top: 24px; margin-bottom: 0;">Showreel</p>
+        <p style="margin-bottom: 24px;">last update: 12/2024</p>
         <video controls src="videos/portfolio/portfolio.mp4" width="70%" style="border-radius: 20px;">
         </video>
     </div>
+    
     
     
 

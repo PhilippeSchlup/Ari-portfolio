@@ -2,12 +2,58 @@ html{
     height: 100vh;
 }
 
-.button.is-link:hover {
-    background-color: #b08cc7; 
-    color: #ffffff; 
+
+:root {
+    --bulma-danger-h: 7deg;
+    --bulma-danger-s: 82%;
+    --bulma-danger-l: 51%;
+    --bulma-danger: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+  }
+  
+.has-background-danger {
+    background-color: var(--bulma-danger) !important;
 }
 
-.button.is-link {
-    transition: background-color 0.3s ease, color 0.3s ease;
+:root {
+    --bulma-warning-h: 26deg;
+    --bulma-warning-s: 74%;
+    --bulma-warning-l: 71%;
+    --bulma-warning: hsl(var(--bulma-warning-h), var(--bulma-warning-s), var(--bulma-warning-l));
+}  
+.has-background-warning {
+    background-color: var(--bulma-warning) !important;
+}  
+
+.button.is-custom-danger {
+    --bulma-danger-h: 15deg;
+    --bulma-danger-s: 84%;
+    --bulma-danger-l: 57%;
+    background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l)) !important;
+    border-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l)) !important;
+    color: white !important;
+    transition: all 0.3s ease; 
+}
+
+.button.is-custom-danger:hover {
+    --bulma-danger-l: 50%; 
+    background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l)) !important;
+    border-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l)) !important;
+    color: #ffffff !important; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.navbar-item.has-text-white {
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.navbar-item.has-text-white:hover {
+    background-color: var(--bulma-primary, #e9311a); 
+    color: white; 
+}
+.navbar-item[aria-current="page"] {
+    background-color: var(--bulma-primary, #e9311a); 
+    color: white; 
+    font-weight: bold; 
 }
 
