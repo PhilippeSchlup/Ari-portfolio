@@ -112,5 +112,56 @@ html{
     background-color: red; /* Line color */
 }
 
+#imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.column {
+    padding: 8px;
+}
 
+.image {
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.is-active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.button.is-left {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button.is-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
