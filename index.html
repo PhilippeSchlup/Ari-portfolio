@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="js/portfolio.js"></script>
     <title>Arianna's Portfolio</title>
 </head>
 <body>
     <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-text-light is-size-4" href="">
-                <strong>Arianna</strong>
+            <a class="navbar-item" href="">
+                <img src="img/Ari_logo_no_bg1.png" alt="">
             </a>
             <a role="button" class="navbar-burger has-text-light" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -25,6 +27,7 @@
                 <a class="navbar-item has-text-light" href="index.html" aria-current="page">Portfolio</a>
                 <a class="navbar-item has-text-light" href="projects.html">Projects</a>
                 <a class="navbar-item has-text-light" href="about_me.html">About me</a>
+                <a class="navbar-item has-text-light" href="contacts.html">Contact</a>
             </div>
             <div class="navbar-end">
                 <a class="navbar-item has-text-light " href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV" style="border-radius: 5px; padding: 8px 16px;">
@@ -36,6 +39,7 @@
     
 
     <div class="is-flex is-flex-direction-column is-align-items-center" style="min-height: calc(100vh - 64px);">
+        <h1 class="title is-1" style="margin-top: 24px;">Arianna Alvarez</h1>
         <p class="title" style="margin-top: 24px; margin-bottom: 0;">Showreel</p>
         <p style="margin-bottom: 24px;">last update: 12/2024</p>
         <video style="margin-bottom: 64px;"  preload="metadata" controls id="customVideo" src="videos/portfolio/portfolio.mp4#t=0.001" width="50%">
@@ -47,6 +51,11 @@
         <div id="imageGridStoryBoard" class="columns is-multiline" style="width: 50%; margin-bottom: 64px;"></div>
     </div>
     
+    <footer class="footer has-background-dark" style="position: relative; bottom: 0; width: 100%;">
+        <div class="content has-text-centered has-text-light" >
+            <p>&copy; 2025 Philippe Schlup</p>
+        </div>
+    </footer>
     
     
     <div id="imageModal" class="modal">
@@ -61,114 +70,132 @@
         <button id="nextImage" class="button is-large is-right">→</button>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const imageGrid = document.getElementById('imageGrid');
-            const imageGridStoryBoard = document.getElementById('imageGridStoryBoard');
-            const imageFolder = 'img/Portfolio/';
-            const storyboardFolder = 'img/Storyboard/';
-            const imageFiles = [
-                'BG_01.jpeg',
-                'BG_02.jpeg',
-                'BG_03.jpeg',
-                'BG_04.jpeg',
-                'BG_06.jpeg',
-                'BG_07.jpeg',
-                'BG_08.jpeg',
-                'BG_10.jpeg',
-                'BG_11.jpeg',
-                // Add more image filenames here
-            ];
-            const storyboardFiles = [
-                'SB_V05_01.jpeg',
-                'SB_V05_02.jpeg',
-                'SB_V05_03.jpeg',
-                'SB_V05_04.jpeg',
-                'SB_V05_05.jpeg',
-                'SB_V05_06.jpeg',
-                'SB_V05_07.jpeg',
-                'SB_V05_08.jpeg',
-                // Add more storyboard filenames here
-            ];
+    
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const imageGrid = document.getElementById('imageGrid');
+        const imageGridStoryBoard = document.getElementById('imageGridStoryBoard');
+        const imageFolder = 'img/Portfolio/';
+        const storyboardFolder = 'img/Storyboard/';
+        const imageFiles = [
+            'BG_01.jpeg',
+            'BG_02.jpeg',
+            'BG_03.jpeg',
+            'BG_04.jpeg',
+            'BG_06.jpeg',
+            'BG_07.jpeg',
+            'BG_08.jpeg',
+            'BG_10.jpeg',
+            'BG_11.jpeg',   
+            'styleframe.jpeg',         
+            'HALF_TURNAROUND__COR_SHAYA.jpeg',
+            'HALF_TURNAROUND_SHAYA_02.jpeg',
+            
+            'POSE_STUDY_SHAYA_01.jpeg',
+            'pose_and_faces_rudy_chikani.jpeg',
+            'TURN_AROUND_CHIKANI_05.jpeg',
+            'INSTA_POST.jpeg',
+            'POSE_STUDY_SHAYA.jpeg',
+            'MERGED_COMPLETE_TURNAROUND_SHAYA.jpeg',
+            'Design1_FondoComCor.jpeg',
+            'Design3_FondoBranco.jpeg',
+            'escenario.jpeg',
+            'EX_02_Tom_A.jpeg',
+            'EX_02_Tom_B.jpeg',
+            'Final_cen_C3_A1rio_B.jpeg',
+            'pfp.jpeg',
+            'wsp1.jpeg',
+            // Add more image filenames here
+        ];
+        const storyboardFiles = [
+            'SB_V05_01.jpeg',
+            'SB_V05_02.jpeg',
+            'SB_V05_03.jpeg',
+            'SB_V05_04.jpeg',
+            'SB_V05_05.jpeg',
+            'SB_V05_06.jpeg',
+            'SB_V05_07.jpeg',
+            'SB_V05_08.jpeg',
+            // Add more storyboard filenames here
+        ];
 
-            let currentIndex = 0;
-            let currentFiles = [];
-            let currentFolder = '';
+        let currentIndex = 0;
+        let currentFiles = [];
+        let currentFolder = '';
 
-            function createImageGrid(imageFiles, folder, gridElement) {
-                imageFiles.forEach((imageFile, index) => {
-                    const column = document.createElement('div');
-                    column.className = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop';
-                    const figure = document.createElement('figure');
-                    figure.className = 'image is-4by3';
-                    const img = document.createElement('img');
-                    img.src = folder + imageFile;
-                    img.alt = imageFile;
-                    img.style.objectFit = 'cover';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.dataset.index = index;
-                    img.dataset.folder = folder;
-                    img.addEventListener('click', () => openModal(index, imageFiles, folder));
-                    figure.appendChild(img);
-                    column.appendChild(figure);
-                    gridElement.appendChild(column);
-                });
+        function createImageGrid(imageFiles, folder, gridElement) {
+            imageFiles.forEach((imageFile, index) => {
+                const column = document.createElement('div');
+                column.className = 'column is-half-mobile is-one-third-tablet is-one-quarter-desktop';
+                const figure = document.createElement('figure');
+                figure.className = 'image is-4by3';
+                const img = document.createElement('img');
+                img.src = folder + imageFile;
+                img.alt = imageFile;
+                img.style.objectFit = 'cover';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.dataset.index = index;
+                img.dataset.folder = folder;
+                img.addEventListener('click', () => openModal(index, imageFiles, folder));
+                figure.appendChild(img);
+                column.appendChild(figure);
+                gridElement.appendChild(column);
+            });
+        }
+
+        function openModal(index, files, folder) {
+            currentIndex = index;
+            currentFiles = files;
+            currentFolder = folder;
+            modalImage.src = currentFolder + currentFiles[currentIndex];
+            modal.classList.add('is-active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-active');
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentFiles.length - 1;
+            modalImage.src = currentFolder + currentFiles[currentIndex];
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < currentFiles.length - 1) ? currentIndex + 1 : 0;
+            modalImage.src = currentFolder + currentFiles[currentIndex];
+        }
+
+        createImageGrid(imageFiles, imageFolder, imageGrid);
+        createImageGrid(storyboardFiles, storyboardFolder, imageGridStoryBoard);
+
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const prevButton = document.getElementById('prevImage');
+        const nextButton = document.getElementById('nextImage');
+        const closeButton = document.querySelector('.modal-close');
+
+        prevButton.addEventListener('click', showPrevImage);
+        nextButton.addEventListener('click', showNextImage);
+        closeButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
             }
+        });
 
-            function openModal(index, files, folder) {
-                currentIndex = index;
-                currentFiles = files;
-                currentFolder = folder;
-                modalImage.src = currentFolder + currentFiles[currentIndex];
-                modal.classList.add('is-active');
-            }
-
-            function closeModal() {
-                modal.classList.remove('is-active');
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentFiles.length - 1;
-                modalImage.src = currentFolder + currentFiles[currentIndex];
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex < currentFiles.length - 1) ? currentIndex + 1 : 0;
-                modalImage.src = currentFolder + currentFiles[currentIndex];
-            }
-
-            createImageGrid(imageFiles, imageFolder, imageGrid);
-            createImageGrid(storyboardFiles, storyboardFolder, imageGridStoryBoard);
-
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const prevButton = document.getElementById('prevImage');
-            const nextButton = document.getElementById('nextImage');
-            const closeButton = document.querySelector('.modal-close');
-
-            prevButton.addEventListener('click', showPrevImage);
-            nextButton.addEventListener('click', showNextImage);
-            closeButton.addEventListener('click', closeModal);
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
+        document.addEventListener('keydown', (event) => {
+            if (modal.classList.contains('is-active')) {
+                if (event.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (event.key === 'ArrowRight') {
+                    showNextImage();
+                } else if (event.key === 'Escape') {
                     closeModal();
                 }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (modal.classList.contains('is-active')) {
-                    if (event.key === 'ArrowLeft') {
-                        showPrevImage();
-                    } else if (event.key === 'ArrowRight') {
-                        showNextImage();
-                    } else if (event.key === 'Escape') {
-                        closeModal();
-                    }
-                }
-            });
+            }
         });
-    </script>
-</body>
-
+    });
+</script>
 </html>

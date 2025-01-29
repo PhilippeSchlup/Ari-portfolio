@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="js/portfolio.js"></script>
-    <title>Projects</title>
 </head>
 <body>
     <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
@@ -23,10 +24,10 @@
         </div>
         <div id="navbarBasicExample" class="navbar-menu has-background-dark">
             <div class="navbar-start">
-                <a class="navbar-item has-text-light" href="index.html" >Portfolio</a>
-                <a class="navbar-item has-text-light" href="projects.html" aria-current="page">Projects</a>
+                <a class="navbar-item has-text-light" href="index.html">Portfolio</a>
+                <a class="navbar-item has-text-light" href="projects.html">Projects</a>
                 <a class="navbar-item has-text-light" href="about_me.html">About me</a>
-                <a class="navbar-item has-text-light" href="contacts.html">Contacts</a>
+                <a class="navbar-item has-text-light" href="contacts.html" aria-current="page">Contact</a>
             </div>
             <div class="navbar-end">
                 <a class="navbar-item has-text-light " href="documents/CV_Arianna_Alvarez.pdf" download="Arrianna-CV" style="border-radius: 5px; padding: 8px 16px;">
@@ -36,23 +37,25 @@
         </div>
     </nav>
 
-    <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" >
-        <p class="title" style="margin-top: 24px; margin-bottom: 0;">Project UAlg</p>
-        <p style="margin-bottom: 24px;">last update: 1/2025</p>
-        <video preload="metadata" controls src="videos/project/take1_2.mp4#t=0.001" width="50%" style="margin-bottom: 20px;">
-            Your browser doesn’t support video formats.
-        </video>
-        <video preload="metadata" controls src="videos/project/take3.mp4#t=0.001" width="50%" style="margin-bottom: 20px;">
-            Your browser doesn’t support video formats.
-        </video>
+    <div class="is-flex is-flex-direction-column is-align-items-center" style="min-height: calc(100vh - 64px); ">
+       
+            <section class="section">
+                <h1 class="title">Contacts</h1>
+                <div class="content">
+                    <p><span class="icon"><i class="fas fa-envelope"></i></span> <a href="mailto:arianna.alvarez@example.com">arianna.alvarez@example.com</a></p>
+                    <p><span class="icon"><i class="fas fa-phone"></i></span> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p><span class="icon"><i class="fab fa-linkedin"></i></span> <a href="https://www.linkedin.com/in/arianna-alvarez" target="_blank">Arianna Alvarez</a></p>
+                </div>
+            </section>
+        
     </div>
+   
 
-    <footer class="footer has-background-dark" style="position: relative; bottom: 0; width: 100%;">
+    <footer class="footer has-background-dark" style="position: absolute; bottom: 0; width: 100%;">
         <div class="content has-text-centered has-text-light" >
             <p>&copy; 2025 Philippe Schlup</p>
         </div>
     </footer>
-    
 
 </body>
 </html>
