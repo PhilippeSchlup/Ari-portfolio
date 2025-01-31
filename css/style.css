@@ -1,6 +1,7 @@
 html{
     height: 100vh;
 }
+
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -15,6 +16,29 @@ html{
     background-color: transparent !important;
     color: var(--bulma-light, #ffffff) !important;
     text-decoration: none; 
+}
+
+.download {
+    color: hsl(0, 0%, 21%)!important;
+    transition: color 0.3s ease;
+    border: none !important;
+}
+.download:hover {
+    color: hsl(0, 0%, 21%)!important;
+}
+.download::after {
+    content: ''; 
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    width: 0;
+    height: 2px; 
+    background-color: red; 
+    transition: width 0.3s ease; 
+}
+
+.download:hover::after {
+    width: 100%; 
 }
 
 
@@ -118,12 +142,17 @@ html{
     justify-content: center;
 }
 
+#imageGridStoryBoard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .column {
     padding: 8px;
 }
 
 .image {
-    overflow: hidden;
     transition: transform 0.3s ease;
 }
 
